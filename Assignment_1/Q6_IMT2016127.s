@@ -3,20 +3,20 @@
      ENTRY 
 __main  FUNCTION	
 
-;LOAD AN ODD NUMBER
+;LOAD a AND b
 	    MOV  R0, #0x4
 		MOV  R1, #0x9
 		
 
 GCD
-		CMP R0, R1
-		BEQ stop
-		CMP R0, R1
-		ITE GT
-		SUBGT R0, R0, R1
-		SUBLE R1, R1, R0
+		CMP R0, R1   ; (a!=b)
+		BEQ stop	 ; exit if equal
+		CMP R0, R1	 
+		ITE GT		 
+		SUBGT R0, R0, R1 ; (a>b)
+		SUBLE R1, R1, R0 ; (a<=b)
 		
-		B GCD
+		B GCD			 ; next iteration
 		
 		
 stop    B stop ; stop program
